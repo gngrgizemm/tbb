@@ -1,0 +1,13 @@
+---
+- name: tcpdump install
+  apt: 
+    name: tcpdump
+    state: latest
+- name: tcpdump 
+  shell: "tcpdump -D"
+  args:
+    executable: "/bin/bash"
+  register: t
+- name: output
+  debug:
+    msg: "{{ t.stdout_lines }}"

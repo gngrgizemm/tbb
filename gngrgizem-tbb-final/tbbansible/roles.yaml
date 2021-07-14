@@ -1,0 +1,19 @@
+---
+- hosts: server
+  remote_user: gizem
+  become: true
+  roles:
+    - role: install_rsyslog
+  tags: rsys
+- hosts: server
+  remote_user: gizem
+  become: true
+  roles:
+    - role: install_netstat
+  tags: netstat
+- hosts: server
+  remote_user: gizem
+  become: true
+  roles:
+    - role: install_tcpdump
+  tags: tcpdump

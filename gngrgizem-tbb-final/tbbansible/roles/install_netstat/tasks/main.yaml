@@ -1,0 +1,16 @@
+---
+- name: update
+  shell: sudo apt update
+  become: yes
+  
+- name: debian | netstat tools is installed
+  apt:
+    name: net-tools
+    state: present
+  become: true
+  become_user: root
+
+- shell: netstat -nr
+  register: result
+- debug:
+    msg: "{{ result.stdout }}"
